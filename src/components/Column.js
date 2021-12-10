@@ -2,10 +2,14 @@ import React from 'react';
 import Task from './Task';
 import { Droppable } from 'react-beautiful-dnd';
 
-const Container = ({ provided, tasks }) => {
+const Container = ({ provided, tasks, isDraggingOver }) => {
   return (
     <div
-      className='tasks-list border min-vh-20'
+      className={`'tasks-list border min-vh-20' ${
+        isDraggingOver
+          ? 'bg-secondary bg-opacity-50'
+          : 'bg-secondary bg-opacity-30'
+      }`}
       ref={provided.innerRef}
       {...provided.droppableProps}>
       {tasks.map((task, index) => (
@@ -23,7 +27,13 @@ const Column = ({ column, tasks }) => {
         {column.title}
       </h6>
       <Droppable droppableId={column.id}>
-        {(provided) => <Container provided={provided} tasks={tasks} />}
+        {(provided, snapshot) => (
+          <Container
+            provided={provided}
+            tasks={tasks}
+            isDraggingOver={snapshot.isDraggingOver}
+          />
+        )}
       </Droppable>
     </div>
   );
