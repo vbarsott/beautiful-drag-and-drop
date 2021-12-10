@@ -42,9 +42,38 @@ const App = () => {
     return <Column key={column.id} column={column} tasks={tasks} />;
   });
 
+  const onDragEnd = (event) => {
+    const { source, destination, draggableId } = event;
+
+    if (!destination) return;
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+
+    const column = columnx[source.droppableId];
+
+    const newTaskIds = Array.from(column.taskIds);
+    newTaskIds.splice(source.index, 1);
+    newTaskIds.splice(destination.index, 0, draggableId);
+
+    const newColumn = {
+      ...column,
+      taskIds: newTaskIds,
+    };
+
+    const newState = {
+      ...columnx,
+      [newColumn.id]: newColumn,
+    };
+    setColumnx(newState);
+  };
+
   return (
     <>
-      <DragDropContext>
+      <DragDropContext onDragEnd={onDragEnd}>
         <div className='d-flex justify-content-between p-2 border bg-gray-400'>
           {colOrder}
         </div>
