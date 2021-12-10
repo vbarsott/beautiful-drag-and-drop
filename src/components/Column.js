@@ -22,8 +22,8 @@ const Container = ({ provided, tasks, isDraggingOver }) => {
 
 const Column = ({ column, tasks }) => {
   return (
-    <div className='columns col bg-light m-2 p-2 border'>
-      <h6 className='column-title h6 text-center bg-accent bg-opacity-30 p-1 border'>
+    <div className='columns col bg-light m-2 p-2 border rounded-1 '>
+      <h6 className='column-title h6 text-center bg-accent bg-opacity-30 p-1 border rounded-1 '>
         {column.title}
       </h6>
       <Droppable droppableId={column.id}>

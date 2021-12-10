@@ -1,16 +1,32 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
+const Handle = ({ provided }) => {
+  return (
+    <div
+      {...provided.dragHandleProps}
+      className='d-flex justify-content-center align-items-center vw-5 vh-5 bg-accent m-1'>
+      x
+    </div>
+  );
+};
+
 const Container = ({ provided, task, isDragging }) => {
   return (
     <div
       {...provided.draggableProps}
-      {...provided.dragHandleProps}
       ref={provided.innerRef}
-      className={`'border m-2 p-2' ${
+      className={`'border rounded-1 m-2 p-2' ${
         isDragging ? 'bg-accent bg-opacity-30' : 'bg-gray-300'
       }`}>
-      <p className='p-2'>{task.content}</p>
+      <div className='d-flex align-items-center'>
+        <div
+          {...provided.dragHandleProps}
+          className='d-flex justify-content-center align-items-center rounded-1 px-2 py-1 bg-accent m-1'>
+          👋🏻
+        </div>
+        <p className='p-2'>{task.content}</p>
+      </div>
     </div>
   );
 };
@@ -23,8 +39,7 @@ const Task = ({ task, index }) => {
           <Container
             provided={provided}
             task={task}
-            isDragging={snapshot.isDragging}
-          />
+            isDragging={snapshot.isDragging}></Container>
         )}
       </Draggable>
     </>
