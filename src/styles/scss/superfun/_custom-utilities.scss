@@ -1,0 +1,125 @@
+/* CUSTOM UTILITIES */
+
+// utility for generating all text colors
+$all-colors: map-merge-multiple(
+  $blues,
+  $indigos,
+  $purples,
+  $pinks,
+  $reds,
+  $oranges,
+  $yellows,
+  $greens,
+  $teals,
+  $cyans,
+  $grays
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'color':
+      map-merge(
+        map-get($utilities, 'color'),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, 'color'), 'values'),
+              ($all-colors)
+            ),
+        )
+      ),
+    'bg-opacity': (
+      css-var: true,
+      class: bg-opacity,
+      values: (
+        10: 0.1,
+        20: 0.2,
+        25: 0.25,
+        30: 0.3,
+        40: 0.4,
+        50: 0.5,
+        60: 0.6,
+        70: 0.7,
+        75: 0.75,
+        80: 0.8,
+        90: 0.9,
+        100: 1,
+      ),
+    ),
+  )
+);
+
+$custom_utilities: (
+  'width': (
+    'prefix': 'vw',
+    'values': (
+      '5': 5vw,
+      '10': 10vw,
+      '15': 15vw,
+      '20': 20vw,
+      '25': 25vw,
+      '30': 30vw,
+      '35': 35vw,
+      '40': 40vw,
+      '45': 45vw,
+      '50': 50vw,
+      '55': 55vw,
+      '60': 60vw,
+      '65': 65vw,
+      '70': 70vw,
+      '75': 75vw,
+      '80': 80vw,
+      '85': 85vw,
+      '90': 90vw,
+      '95': 95vw,
+      '100': 100vw,
+    ),
+  ),
+  'height': (
+    'prefix': 'vh',
+    'values': (
+      '5': 5vh,
+      '10': 10vh,
+      '15': 15vh,
+      '20': 20vh,
+      '25': 25vh,
+      '30': 30vh,
+      '35': 35vh,
+      '40': 40vh,
+      '45': 45vh,
+      '50': 50vh,
+      '55': 55vh,
+      '60': 60vh,
+      '65': 65vh,
+      '70': 70vh,
+      '75': 75vh,
+      '80': 80vh,
+      '85': 85vh,
+      '90': 90vh,
+      '95': 95vh,
+      '100': 100vh,
+    ),
+  ),
+);
+@each $property, $map in $custom_utilities {
+  $prefix: map-get($map, 'prefix');
+  $values: map-get($map, 'values');
+  @each $k, $v in $values {
+    .#{$prefix}-#{$k} {
+      #{$property}: $v;
+    }
+    .max-vw-#{$k} {
+      max-width: #{$v} !important;
+    }
+    .min-vw-#{$k} {
+      min-width: #{$v} !important;
+    }
+    .max-vh-#{$k} {
+      max-width: #{$v} !important;
+    }
+    .min-vh-#{$k} {
+      min-width: #{$v} !important;
+    }
+  }
+}

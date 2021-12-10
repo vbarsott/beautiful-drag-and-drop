@@ -1,0 +1,41 @@
+/* CUSTOM BUTTONS */
+@use 'sass:math';
+
+$s: $font_size_base;
+$s_lg: $s * 1.2;
+$s_sm: $s * 0.8;
+
+.styled-btn {
+  font-size: $s;
+  border-width: 1px 2px 3px 2px;
+  border-radius: $border_radius_base * 2;
+  border-color: $border;
+  text-transform: capitalize;
+  box-shadow: $box_shadow_base;
+  font-weight: $medium;
+  letter-spacing: $letter_spacing_base;
+  padding: math.div($spacer, 2) $spacer * 1.5;
+  &:hover {
+    border-color: $border;
+  }
+  &.small {
+    font-size: $s_sm;
+  }
+  &.big {
+    font-size: $s_lg;
+  }
+}
+
+.icon-btn {
+  border-width: 1px 2px 3px 2px;
+  border-radius: 50%;
+  border-color: $border;
+  padding: $spacer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    border-width: 1px 2px 3px 2px;
+    border-color: $border;
+  }
+}

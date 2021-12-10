@@ -1,0 +1,10 @@
+.col-box {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+.tasks-column {
+  border: 1px solid black;
+  width: 30vw;
+  padding: 1rem;
+}

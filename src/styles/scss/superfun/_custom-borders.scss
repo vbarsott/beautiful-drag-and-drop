@@ -1,0 +1,22 @@
+/* CUSTOM BORDERS */
+
+@mixin make_border() {
+  border-style: solid;
+  border-color: $border;
+  border-width: $border_width_base;
+}
+
+.border-content {
+  @include make_border();
+  border-width: 1px 2px 3px 2px;
+  border-radius: $border_radius_base * 2;
+}
+
+.border-feature {
+  @include make_border();
+  border-width: 1px 2px;
+  border-top-left-radius: 120px 4px;
+  border-top-right-radius: 10px 120px;
+  border-bottom-left-radius: 120px 6px;
+  border-bottom-right-radius: 4px 110px;
+}

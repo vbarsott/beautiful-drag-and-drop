@@ -1,0 +1,99 @@
+/* CUSTOM VARIABLES */
+
+// font-family
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+$font_styled: 'Ranchers', cursive;
+$font_default: 'Poppins', sans-serif;
+
+// font-size
+$font_size_base: 1rem;
+$theme_font_sizes: (
+  default: 1rem,
+  1: 3.5rem,
+  2: 3rem,
+  3: 2.5rem,
+  4: 2rem,
+  5: 1.6rem,
+  6: 1.3rem,
+);
+
+// font-weight
+$thin: 100;
+$extralight: 200;
+$light: 300;
+$normal: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$extrabold: 800;
+$heavy: 900;
+$theme_font_weight: (
+  'thin': 100,
+  'extralight': 200,
+  'light': 300,
+  'normal': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+  'extrabold': 800,
+  'heavy': 900,
+);
+
+// letter-spacing
+$letter_spacing_base: 1px;
+$theme_letter_spacing: (
+  'sm': 1.2px,
+  'md': 1.4px,
+  'lg': 1.6px,
+);
+
+// stroke
+$text_stroke_width_base: 0.2px;
+
+// box-shadow
+$box_shadow_base: 1px 3px 5px rgba(0, 0, 0, 0.1);
+
+// transition
+$transition_base: 0.3s ease-in-out;
+
+// spacing
+$spacer: 10px;
+$spacers: (
+  0: 0,
+  1: $spacer,
+  2: $spacer * 2,
+  3: $spacer * 3,
+  4: $spacer * 4,
+  5: $spacer * 5,
+  6: $spacer * 6,
+);
+
+// border width
+$border_width_base: 1px;
+$border_width_sizes: (
+  none: none,
+  'sm': $border_width_base,
+  'md': $border_width_base * 2,
+  'lg': $border_width_base * 3,
+);
+
+// border-radius
+$border_radius_base: 5px;
+$border_radiuses: (
+  0: 0,
+  5: $border_radius_base,
+  10: $border_radius_base * 2,
+  15: $border_radius_base * 3,
+  20: $border_radius_base * 4,
+  25: $border_radius_base * 5,
+  30: $border_radius_base * 6,
+  round: $border_radius_base * 10,
+);
+
+// custom border-radius
+@each $key, $val in $border_radiuses {
+  .br-#{$key} {
+    border-radius: $val;
+  }
+}

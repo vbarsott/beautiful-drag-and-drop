@@ -1,0 +1,46 @@
+/* CUSTOMIZING BOOTSTRAP */
+// PS: Do not change this sequence of variables and imports
+
+// breakpoints
+$grid-breakpoints: (
+  xxs: 0,
+  xs: 420px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// containers
+$container-max-widths: (
+  xs: 450px,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
+// enables bootstrap negative margins
+$enable-negative-margins: true;
+
+// custom colors to override bootstrap
+@import './superfun/custom-colors';
+
+// bootstrap main file
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+// custom utilities to handle: colors, bg, opacity, sizing
+@import './superfun/custom-utilities';
+
+// bootstrap utilities
+@import '../../../node_modules/bootstrap/scss/utilities/api';
+
+// custom styling
+@import './superfun/custom-variables';
+@import './superfun/custom-breakpoints';
+@import './superfun/custom-typography';
+@import './superfun/custom-borders';
+@import './superfun/custom-buttons';
+@import './superfun/custom-classes';
