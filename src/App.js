@@ -1,5 +1,6 @@
 import './styles/scss/styles.scss';
 
+import { DragDropContext } from 'react-beautiful-dnd';
 import { useState } from 'react';
 import Column from './components/Column';
 
@@ -36,18 +37,19 @@ const App = () => {
   ]);
 
   const colOrder = columnOrderx.map((columnId) => {
-    //get the column index
     const column = columnx[columnId];
-    // get each task index based on the column index
     const tasks = column.taskIds.map((taskId) => taskx[taskId]);
-    
     return <Column key={column.id} column={column} tasks={tasks} />;
   });
 
   return (
-    <div className='d-flex justify-content-between p-2 border bg-gray-400'>
-      {colOrder}
-    </div>
+    <>
+      <DragDropContext>
+        <div className='d-flex justify-content-between p-2 border bg-gray-400'>
+          {colOrder}
+        </div>
+      </DragDropContext>
+    </>
   );
 };
 
