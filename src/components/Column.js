@@ -9,16 +9,13 @@ const Column = ({ column, tasks }) => {
         <h6 className='column-title h6 text-center bg-accent bg-opacity-30 p-1 border '>
           {column.title}
         </h6>
-        <Droppable
-          droppableId={column.id}
-          // the column done don't accept the item
-          type={column.id === 'column-3' ? 'done' : 'active'}>
+        <Droppable droppableId={column.id} direction='horizontal'>
           {(provided, snapshot) => (
             <div
-              className={`'tasks-list border d-flex flex-column min-vh-40' ${
+              className={`'tasks-list d-flex justify-content-center border' ${
                 snapshot.isDraggingOver
-                  ? 'bg-accent bg-opacity-30 min-vh-40'
-                  : 'bg-gray-200 min-vh-40'
+                  ? 'bg-accent bg-opacity-30'
+                  : 'bg-gray-200'
               } `}
               ref={provided.innerRef}
               {...provided.droppableProps}>
