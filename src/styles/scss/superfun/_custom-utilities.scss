@@ -116,10 +116,10 @@ $custom_utilities: (
       min-width: #{$v} !important;
     }
     .max-vh-#{$k} {
-      max-width: #{$v} !important;
+      max-height: #{$v} !important;
     }
     .min-vh-#{$k} {
-      min-width: #{$v} !important;
+      min-height: #{$v} !important;
     }
   }
 }

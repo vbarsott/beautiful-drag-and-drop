@@ -30,17 +30,12 @@ const App = () => {
     },
   });
 
+  // Facilitate reordering of the columns
   const [columnOrderx, setColumnOrderx] = useState([
     'column-1',
     'column-2',
     'column-3',
   ]);
-
-  const colOrder = columnOrderx.map((columnId) => {
-    const column = columnx[columnId];
-    const tasks = column.taskIds.map((taskId) => taskx[taskId]);
-    return <Column key={column.id} column={column} tasks={tasks} />;
-  });
 
   const onDragEnd = (event) => {
     const { source, destination, draggableId } = event;
@@ -53,20 +48,46 @@ const App = () => {
       return;
     }
 
-    const column = columnx[source.droppableId];
+    const start = columnx[source.droppableId];
+    const finish = columnx[destination.droppableId];
 
-    const newTaskIds = Array.from(column.taskIds);
-    newTaskIds.splice(source.index, 1);
-    newTaskIds.splice(destination.index, 0, draggableId);
+    if (start === finish) {
+      const newTaskIds = Array.from(start.taskIds);
+      newTaskIds.splice(source.index, 1);
+      newTaskIds.splice(destination.index, 0, draggableId);
 
-    const newColumn = {
-      ...column,
-      taskIds: newTaskIds,
+      const newColumn = {
+        ...start,
+        taskIds: newTaskIds,
+      };
+
+      const newState = {
+        ...columnx,
+        [newColumn.id]: newColumn,
+      };
+      setColumnx(newState);
+      return;
+    }
+
+    // Moving from one list to another
+    const startTaskIds = Array.from(start.taskIds);
+    startTaskIds.splice(source.index, 1);
+    const newStart = {
+      ...start,
+      taskIds: startTaskIds,
+    };
+
+    const finishTaskIds = Array.from(finish.taskIds);
+    finishTaskIds.splice(destination.index, 0, draggableId);
+    const newFinish = {
+      ...finish,
+      taskIds: finishTaskIds,
     };
 
     const newState = {
       ...columnx,
-      [newColumn.id]: newColumn,
+      [newStart.id]: newStart,
+      [newFinish.id]: newFinish,
     };
     setColumnx(newState);
   };
@@ -75,7 +96,11 @@ const App = () => {
     <>
       <DragDropContext onDragEnd={onDragEnd}>
         <div className='d-flex justify-content-between p-2 border bg-gray-400'>
-          {colOrder}
+          {columnOrderx.map((columnId) => {
+            const column = columnx[columnId];
+            const tasks = column.taskIds.map((taskId) => taskx[taskId]);
+            return <Column key={column.id} column={column} tasks={tasks} />;
+          })}
         </div>
       </DragDropContext>
     </>
