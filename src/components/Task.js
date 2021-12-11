@@ -2,6 +2,7 @@ import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
 const Task = ({ task, index }) => {
+  const isDragDisabled = task.id === 'task-1';
   return (
     <>
       <Draggable draggableId={task.id} index={index}>
@@ -12,8 +13,12 @@ const Task = ({ task, index }) => {
             className='border rounded-1 m-2'>
             <div
               className={`d-flex align-items-center ${
-                snapshot.isDragging ? 'bg-gray-200' : 'bg-accent bg-opacity-30'
-              }`}>
+                isDragDisabled
+                  ? 'bg-gray-300'
+                  : snapshot.isDragging
+                  ? 'bg-gray-200'
+                  : 'bg-accent bg-opacity-30'
+              } `}>
               <div
                 {...provided.dragHandleProps}
                 className='d-flex justify-content-center align-items-center rounded-1 bg-accent bg-opacity-30 p-2'>

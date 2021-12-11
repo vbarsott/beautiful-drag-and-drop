@@ -9,7 +9,10 @@ const Column = ({ column, tasks }) => {
         <h6 className='column-title h6 text-center bg-accent bg-opacity-30 p-1 border '>
           {column.title}
         </h6>
-        <Droppable droppableId={column.id}>
+        <Droppable
+          droppableId={column.id}
+          // the column done don't accept the item
+          type={column.id === 'column-3' ? 'done' : 'active'}>
           {(provided, snapshot) => (
             <div
               className={`'tasks-list border d-flex flex-column min-vh-40' ${
