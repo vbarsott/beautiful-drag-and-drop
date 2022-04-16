@@ -9,13 +9,13 @@ https://beautifuldraganddrop.vanessabarsotti.com/
 This is a simple example of a the drag and drop feature developed with React and react-beautiful-dnd for a list of songs to be sorted showing that not only the songs can be dragged around, but the also columns.
 https://www.npmjs.com/package/react-beautiful-dnd
 
-## If cloning the project:
+## If cloning the project
 
 - git clone https://github.com/vbarsott/beautiful-drag-and-drop.git
 - npm install
 - npm run dev
 
-## If creating from scratch:
+## If creating from scratch
 
 - Run: `npx create-react-app beautiful-drag-and-drop`
 - Clean up extra files
@@ -28,8 +28,6 @@ https://www.npmjs.com/package/react-beautiful-dnd
 ### Router
 
 - Router: `npm i react-router-dom`
-- Beautiful DND: `npm install react-beautiful-dnd`
-  PS: for installation conflicts, install as: `npm install --legacy-peer-deps react-beautiful-dnd`
 
 ### Styling
 
@@ -45,8 +43,10 @@ https://www.npmjs.com/package/react-beautiful-dnd
 - Bootstrap: `npm i bootstrap`
 - React Bootstrap: `npm i react-bootstrap`
 - React icons: `npm i react-icons`
+- Beautiful DND: `npm install react-beautiful-dnd`
+  PS: for installation conflicts, install as: `npm install --legacy-peer-deps react-beautiful-dnd`
 
-## Setup to run all together:
+## Setup to run all together
 
 - Install: `npm i concurrently --save-dev`
 - Include script on package.json (DON'T DELETE WHAT WAS INSTALLED BEFORE):
