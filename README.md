@@ -6,12 +6,12 @@ https://beautifuldraganddrop.vanessabarsotti.com/
 
 ## Description
 
-This is an example of a the drag and drop feature developed with React and react-beautiful-dnd for a To Do List (GTD style).
+This is a simple example of a the drag and drop feature developed with React and react-beautiful-dnd for a list of songs to be sorted showing that not only the songs can be dragged around, but the also columns.
 https://www.npmjs.com/package/react-beautiful-dnd
 
 ## If cloning the project:
 
-- git clone https://github.com/vbarsott/flipping-book.git
+- git clone https://github.com/vbarsott/beautiful-drag-and-drop.git
 - npm install
 - npm run dev
 
