@@ -1,46 +1,30 @@
-/* CUSTOMIZING BOOTSTRAP */
-// PS: Do not change this sequence of variables and imports
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+$font-styled: 'Irish Grover', cursive;
 
-// breakpoints
-$grid-breakpoints: (
-  xxs: 0,
-  xs: 420px,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px,
-);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+$font-default: 'Poppins', sans-serif;
 
-// containers
-$container-max-widths: (
-  xs: 450px,
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px,
-  xxl: 1320px,
-);
+// Bootstrap font-sizes
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
 
-// enables bootstrap negative margins
+// Replace Bootstrap base styles
+$font-family-base: 'Poppins', sans-serif;
+$link-decoration: none;
+
+// Enables bootstrap negative margins
 $enable-negative-margins: true;
 
-// custom colors to override bootstrap
-@import './superfun/custom-colors';
+// Custom styles
+@import './custom-colors';
+@import './custom-breakpoints';
+@import './custom-utilities';
+@import './custom-styles';
 
-// bootstrap main file
-@import '../../../node_modules/bootstrap/scss/bootstrap';
-
-// custom utilities to handle: colors, bg, opacity, sizing
-@import './superfun/custom-utilities';
-
-// bootstrap utilities
-@import '../../../node_modules/bootstrap/scss/utilities/api';
-
-// custom styling
-@import './superfun/custom-variables';
-@import './superfun/custom-breakpoints';
-@import './superfun/custom-typography';
-@import './superfun/custom-borders';
-@import './superfun/custom-buttons';
-@import './superfun/custom-classes';
+// Bootstrap styles
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';

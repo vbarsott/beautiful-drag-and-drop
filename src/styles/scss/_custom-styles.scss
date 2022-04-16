@@ -1,0 +1,72 @@
+// =============================================
+// General styling
+// =============================================
+body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0 !important;
+  }
+}
+
+// =============================================
+// Custom classes
+// =============================================
+// Fonts
+.fontStyled {
+  font-family: $font-styled;
+}
+
+// Colors
+.textColor {
+  color: var(--bs-gray-800);
+}
+.text-gray-400 {
+  color: var(--bs-gray-400);
+}
+.bg-gray-100 {
+  background-color: var(--bs-gray-100);
+}
+.bg-gray-200 {
+  background-color: var(--bs-gray-200);
+}
+.bg-gray-300 {
+  background-color: var(--bs-gray-300);
+}
+.bg-gray-400 {
+  background-color: var(--bs-gray-400);
+}
+.bg-gray-500 {
+  background-color: var(--bs-gray-500);
+}
+.bg-gray-600 {
+  background-color: var(--bs-gray-600);
+}
+.bg-gray-700 {
+  background-color: var(--bs-gray-700);
+}
+.bg-gray-800 {
+  background-color: var(--bs-gray-800);
+}
+.bg-gray-900 {
+  background-color: var(--bs-gray-900);
+}
+
+// Letter spacing
+.ls-1 {
+  letter-spacing: 1px;
+}
+.ls-2 {
+  letter-spacing: 2px;
+}
+
+// Alignment
+.alignAll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
